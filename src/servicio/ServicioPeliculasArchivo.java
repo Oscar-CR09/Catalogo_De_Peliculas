@@ -21,7 +21,7 @@ public class ServicioPeliculasArchivo implements IServicioPeliculas{
                 var salida = new PrintWriter(new FileWriter(archivo));
                 salida.close();
                 System.out.println("Se ha creado el archivo");
-                
+
             }
         }catch (Exception e){
             System.out.println("Ocurrio un error al abrir archivo: " + e.getMessage());
