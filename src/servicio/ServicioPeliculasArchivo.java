@@ -3,9 +3,7 @@ package servicio;
 import dominio.Pelicula;
 
 import javax.swing.table.TableRowSorter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class ServicioPeliculasArchivo implements IServicioPeliculas{
 
@@ -29,6 +27,31 @@ public class ServicioPeliculasArchivo implements IServicioPeliculas{
     }
     @Override
     public void listarPeliculas() {
+
+        //abrir el archivo
+        var archivo = new File(NOMBRE_ARCHIVO);
+        try{
+            System.out.println("Listado de Peliculas");
+            //abrir el archivo para lectura
+            var entrada = new BufferedReader(new FileReader(archivo));
+            //Se lee linea  a liena el archivo
+            String linea;
+            linea = entrada.readLine();
+            //leer todas la lineas disponibles
+            while (linea!=null){
+                var pelicula  = new Pelicula(linea);
+                System.out.println(pelicula);
+                //Antes de termnar el ciclo volvemos a leer la siguiente linea
+                linea = entrada.readLine();
+
+            }
+            //cerrar el archivo
+            entrada.close();
+
+        }catch (Exception e){
+            System.out.println("Ocurrio un error al leer el archivo: " + e.getMessage());
+
+        }
 
     }
 
