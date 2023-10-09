@@ -35,14 +35,11 @@ public class CatalogoPeliculasApp {
     private static void mostrarMenu(){
         System.out.println("""
                 ***Catalogo de Peluculas***
-                1. Agregar pelicula
+                1.Agregar pelicula
                 2.Listar peliculas
                 3.Buscar pelicula
-                4.Salir
-                
+                4.Salir   
                 ****************************
-                
-                
                 """);
     }
 
@@ -53,7 +50,7 @@ public class CatalogoPeliculasApp {
         var salir = false;
         switch (opcion){
             case 1 -> {
-                System.out.println("Itroduce el nombre de la pelicula: ");
+                System.out.println("Introduce el nombre de la pelicula: ");
                 var nombrePelicula = consola.nextLine();
                 servicioPeliculas.agregarPelicula(new Pelicula(nombrePelicula));
 
